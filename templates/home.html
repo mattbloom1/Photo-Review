@@ -1,0 +1,61 @@
+<header class="masthead">
+  <div class="mast-left">Matt Bloomfield <em>— Graphic Design Assistant</em></div>
+  <div class="mast-right">
+    <span>Portfolio / 2026</span>
+    <a href="mailto:matthewb3333@gmail.com">Contact</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Real&nbsp;Estate<br/><em>Photo&nbsp;Editing</em></h1>
+  <div class="hero-meta">
+    <p class="lede">A working collection of edited photography from recent listings — raw captures paired alongside their final, market-ready versions.</p>
+    <span class="tag">Matt Bloomfield · Selected Work</span>
+  </div>
+</section>
+
+<section class="index-band">
+  <h2>Index of properties</h2>
+  <span class="count" id="prop-count">—</span>
+</section>
+
+<div class="props" id="props"></div>
+
+<section class="colophon">
+  <div class="col-block">
+    <h4>About</h4>
+    <p>Graphic design assistant focused on <em>real estate marketing</em> — photography retouching, collateral, and listing visuals.</p>
+  </div>
+  <div class="col-block">
+    <h4>Method</h4>
+    <p>Every listing is edited from the original capture: exposure balanced, verticals corrected, windows pulled, skies replaced when needed.</p>
+  </div>
+  <div class="col-block">
+    <h4>Contact</h4>
+    <p><em>matthewb3333@gmail.com</em><br/>Available for freelance work.</p>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <span>© <span id="year"></span> — Matt Bloomfield</span>
+  <span class="sig">Compiled by hand.</span>
+</footer>
+
+<script>
+const PROPS = window.__PROPS__ || [];
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('prop-count').textContent =
+  String(PROPS.length).padStart(2,'0') + ' / ' +
+  PROPS.reduce((s,p)=>s+p.count,0) + ' photos';
+
+const wrap = document.getElementById('props');
+wrap.innerHTML = PROPS.map((p,i) => `
+  <a class="prop-row" href="./${p.slug}/">
+    <span class="num">${String(i+1).padStart(2,'0')}</span>
+    <span class="name">${p.name}</span>
+    <span class="meta">${p.count} photo${p.count===1?'':'s'}</span>
+    <span class="thumb">${p.cover ? `<img src="${p.cover}" alt="" loading="lazy"/>` : ''}</span>
+    <span class="arrow">→</span>
+  </a>
+`).join('');
+</script>

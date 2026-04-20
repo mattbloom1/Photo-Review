@@ -1,0 +1,175 @@
+<header class="masthead">
+  <div class="mast-left"><a href="../">Matt Bloomfield <em>— Graphic Design Assistant</em></a></div>
+  <div class="mast-right">
+    <a href="../">Index</a>
+    <a href="mailto:matthewb3333@gmail.com">Contact</a>
+  </div>
+</header>
+
+<section class="gal-head">
+  <div>
+    <a class="back-link" href="../">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      All properties
+    </a>
+    <h1 class="gal-title" id="t-name"></h1>
+    <p class="gal-sub" id="t-meta"></p>
+  </div>
+  <div class="gal-controls">
+    <div class="switcher" id="sw">
+      <button class="switcher-btn" onclick="toggleSw()">
+        <span>Switch property</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="switcher-menu" id="sw-menu"></div>
+    </div>
+    <div class="toggle" id="t-toggle">
+      <button class="active" data-mode="edited" onclick="setMode('edited')">Edited</button>
+      <button data-mode="raw" onclick="setMode('raw')">Raw</button>
+    </div>
+  </div>
+</section>
+
+<div class="gal-grid" id="grid"></div>
+
+<nav class="pagination" id="pager"></nav>
+
+<footer class="site-foot">
+  <span>© <span id="year"></span> — Matt Bloomfield</span>
+  <span class="sig">Compiled by hand.</span>
+</footer>
+
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <div class="lb-wrap"><img id="lb-img" src="" alt=""/></div>
+  <div class="lb-label" id="lb-label"></div>
+  <div class="lb-ctrls">
+    <button class="lb-btn" onclick="lbNav(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="lb-pill" id="lb-pill">
+      <button id="lb-ed" class="active" onclick="lbMode('edited')">Edited</button>
+      <button id="lb-rw" onclick="lbMode('raw')">Raw</button>
+    </div>
+    <button class="lb-btn" onclick="lbNav(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div>
+  <div class="lb-hints">
+    <span><span class="k">←</span><span class="k">→</span> navigate</span>
+    <span><span class="k">space</span> raw / edited</span>
+    <span><span class="k">esc</span> close</span>
+  </div>
+</div>
+
+<script>
+const PROP = window.__PROP__;
+const ALL  = window.__ALL__;
+let mode = 'edited';
+let lbIdx = 0, lbM = 'edited';
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('t-name').textContent = PROP.name;
+document.getElementById('t-meta').textContent =
+  String(PROP.count).padStart(2,'0') + ' photos · Raw / Edited';
+
+function toggleSw(){document.getElementById('sw').classList.toggle('open')}
+document.addEventListener('click',e=>{
+  const s=document.getElementById('sw');if(!s.contains(e.target))s.classList.remove('open');
+});
+(function(){
+  const menu=document.getElementById('sw-menu');
+  menu.innerHTML = ALL.map(p=>`
+    <a class="switcher-item ${p.slug===PROP.slug?'current':''}" href="../${p.slug}/">
+      <span>${p.name}</span>
+      <span class="it-count">${p.count}</span>
+    </a>`).join('');
+})();
+
+const grid=document.getElementById('grid');
+grid.innerHTML = PROP.photos.map((ph,i)=>{
+  const onlyOne = !ph.raw || !ph.edited;
+  return `
+  <div class="photo${onlyOne?' only-one':''}" id="p-${i}" onclick="openLb(${i})">
+    ${ph.raw    ? `<img class="raw"  src="${ph.raw}"    alt="${ph.label} raw"    loading="lazy"/>` : ''}
+    ${ph.edited ? `<img class="edit" src="${ph.edited}" alt="${ph.label} edited" loading="lazy"/>` : ''}
+    <span class="tag" id="tag-${i}">${ph.edited?'Edited':'Raw'}</span>
+    <span class="label">${ph.label}</span>
+    ${onlyOne?'':`<button class="swap" title="Toggle" onclick="swap(event,${i})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+    </button>`}
+  </div>`;
+}).join('');
+
+function swap(e,i){
+  e.stopPropagation();
+  const c=document.getElementById('p-'+i);
+  const t=document.getElementById('tag-'+i);
+  const r=c.classList.toggle('show-raw');
+  t.textContent = r ? 'Raw' : 'Edited';
+}
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('#t-toggle button').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));
+  PROP.photos.forEach((ph,i)=>{
+    const c=document.getElementById('p-'+i);if(!c)return;
+    const t=document.getElementById('tag-'+i);
+    if(m==='raw' && ph.raw){c.classList.add('show-raw');t.textContent='Raw';}
+    else{c.classList.remove('show-raw');t.textContent=ph.edited?'Edited':'Raw';}
+  });
+}
+
+(function(){
+  const idx = ALL.findIndex(p=>p.slug===PROP.slug);
+  const prev = idx>0 ? ALL[idx-1] : null;
+  const next = idx<ALL.length-1 ? ALL[idx+1] : null;
+  document.getElementById('pager').innerHTML =
+    (prev?`<a class="page-link prev" href="../${prev.slug}/"><span class="eyebrow">← Previous</span><span class="name">${prev.name}</span></a>`
+         :`<span class="page-link prev disabled"><span class="eyebrow">←</span><span class="name">Start of index</span></span>`) +
+    (next?`<a class="page-link next" href="../${next.slug}/"><span class="eyebrow">Next →</span><span class="name">${next.name}</span></a>`
+         :`<span class="page-link next disabled"><span class="eyebrow">→</span><span class="name">End of index</span></span>`);
+})();
+
+function openLb(i){
+  lbIdx=i;
+  const ph=PROP.photos[i];
+  lbM = ph.edited ? 'edited' : 'raw';
+  const c=document.getElementById('p-'+i);
+  if(c && c.classList.contains('show-raw') && ph.raw) lbM='raw';
+  updateLb();
+  document.getElementById('lb').classList.add('open');
+}
+function closeLb(e){
+  if(e && e.target && e.target.closest && e.target.closest('.lb-wrap,.lb-ctrls,.lb-pill,.lb-btn,.lb-hints,.lb-label') && !(e.currentTarget && e.currentTarget.classList && e.currentTarget.classList.contains('lb-close'))) return;
+  document.getElementById('lb').classList.remove('open');
+}
+function lbNav(d){
+  const n=PROP.photos.length;
+  lbIdx=(lbIdx+d+n)%n;
+  const ph=PROP.photos[lbIdx];
+  lbM = ph.edited?'edited':'raw';
+  updateLb();
+}
+function lbMode(m){
+  const ph=PROP.photos[lbIdx];
+  if(m==='raw' && !ph.raw) return;
+  if(m==='edited' && !ph.edited) return;
+  lbM=m;updateLb();
+}
+function updateLb(){
+  const ph=PROP.photos[lbIdx];
+  const src = lbM==='raw' ? (ph.raw||ph.edited) : (ph.edited||ph.raw);
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-label').textContent =
+    ph.label + ' · ' + (lbIdx+1) + ' / ' + PROP.photos.length;
+  document.getElementById('lb-ed').classList.toggle('active',lbM==='edited');
+  document.getElementById('lb-rw').classList.toggle('active',lbM==='raw');
+  document.getElementById('lb-ed').style.opacity = ph.edited?'1':'0.3';
+  document.getElementById('lb-rw').style.opacity = ph.raw?'1':'0.3';
+}
+window.addEventListener('keydown',e=>{
+  const lb=document.getElementById('lb');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='ArrowRight'){e.preventDefault();lbNav(1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();lbNav(-1)}
+  if(e.key==='Escape')lb.classList.remove('open');
+  if(e.key===' '||e.key==='Spacebar'){e.preventDefault();lbMode(lbM==='raw'?'edited':'raw')}
+  if(e.key==='r'||e.key==='R')lbMode(lbM==='raw'?'edited':'raw');
+});
+</script>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>152 9th Avenue Apt. 2 — Matt Bloomfield</title>
+<meta name="description" content="Matt Bloomfield — Graphic Design Assistant. A collection of edited real estate photography."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f4efe6;
+  --paper-2:#ece6d9;
+  --ink:#111111;
+  --ink-2:#2a2926;
+  --muted:#6b665c;
+  --rule:#d7d1c3;
+  --accent:#7a2e1f;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(0.2,0.8,0.2,1);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.masthead{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:18px 40px;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+.mast-left{font-family:var(--serif);font-size:17px;font-weight:400;letter-spacing:-0.01em}
+.mast-left em{font-style:italic;font-weight:300;color:var(--muted)}
+.mast-right{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+.mast-right a,.mast-right span{margin-left:18px}
+.mast-right a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
+.mast-right a:hover{border-color:var(--ink)}
+
+footer.site-foot{
+  margin-top:120px;padding:36px 40px 28px;
+  border-top:1px solid var(--rule);
+  display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2)}
+
+@media (max-width:640px){
+  .masthead{padding:14px 20px}
+  .mast-right a,.mast-right span{margin-left:10px}
+  footer.site-foot{padding:28px 20px 20px;margin-top:72px}
+}
+
+.gal-head{
+  padding:64px 40px 28px;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;
+}
+.back-link{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  letter-spacing:0.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  border-bottom:1px solid transparent;padding-bottom:2px;
+  transition:color .2s,border-color .2s;margin-bottom:18px;
+}
+.back-link:hover{color:var(--ink);border-color:var(--ink)}
+.gal-title{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(38px,6vw,72px);line-height:0.98;letter-spacing:-0.025em;
+}
+.gal-title em{font-style:italic}
+.gal-sub{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-top:14px}
+.gal-controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-bottom:6px}
+
+.toggle{display:inline-flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--paper)}
+.toggle button{
+  padding:8px 18px;font-family:var(--mono);font-size:10px;
+  letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:0;color:var(--ink);cursor:pointer;
+  transition:background .2s,color .2s;
+}
+.toggle button.active{background:var(--ink);color:var(--paper)}
+
+.switcher{position:relative}
+.switcher-btn{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 16px;
+  border:1px solid var(--rule);border-radius:999px;background:var(--paper);
+  font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-2);cursor:pointer;transition:border-color .2s,color .2s;
+}
+.switcher-btn:hover{border-color:var(--ink);color:var(--ink)}
+.switcher-btn svg{width:10px;height:10px;transition:transform .2s}
+.switcher.open .switcher-btn svg{transform:rotate(180deg)}
+.switcher-menu{
+  display:none;position:absolute;right:0;top:calc(100% + 8px);
+  min-width:280px;background:var(--paper);border:1px solid var(--rule);
+  box-shadow:0 18px 40px rgba(0,0,0,0.08);z-index:40;
+}
+.switcher.open .switcher-menu{display:block}
+.switcher-item{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding:12px 16px;border-bottom:1px solid var(--rule);cursor:pointer;
+  font-family:var(--serif);font-size:15px;color:var(--ink-2);transition:background .15s,color .15s;
+}
+.switcher-item:last-child{border-bottom:0}
+.switcher-item:hover{background:rgba(122,46,31,0.06);color:var(--accent)}
+.switcher-item .it-count{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+.switcher-item.current{color:var(--accent)}
+
+.gal-grid{padding:32px 40px 80px;display:grid;grid-template-columns:repeat(12,1fr);gap:28px}
+.photo{
+  position:relative;overflow:hidden;aspect-ratio:4/3;
+  background:var(--paper-2);border:1px solid var(--rule);cursor:zoom-in;
+}
+.photo:nth-child(7n+1){grid-column:span 7}
+.photo:nth-child(7n+2){grid-column:span 5}
+.photo:nth-child(7n+3){grid-column:span 4}
+.photo:nth-child(7n+4){grid-column:span 4}
+.photo:nth-child(7n+5){grid-column:span 4}
+.photo:nth-child(7n+6){grid-column:span 6}
+.photo:nth-child(7n+7){grid-column:span 6}
+
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),opacity .35s}
+.photo img.raw{z-index:1;opacity:0}
+.photo img.edit{z-index:2;opacity:1}
+.photo.show-raw img.raw{opacity:1}
+.photo.show-raw img.edit{opacity:0}
+.photo:hover img{transform:scale(1.03)}
+
+.photo .tag{
+  position:absolute;top:14px;left:14px;z-index:5;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:4px 10px;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);border-radius:999px;
+}
+.photo .swap{
+  position:absolute;bottom:14px;right:14px;z-index:6;
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--ink);background:var(--paper);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s var(--ease),background .2s,color .2s;
+  color:var(--ink);
+}
+.photo:hover .swap{opacity:1;transform:translateY(0)}
+.photo .swap:hover{background:var(--ink);color:var(--paper)}
+.photo .swap svg{width:14px;height:14px}
+.photo.only-one .swap{display:none}
+.photo .label{
+  position:absolute;left:0;right:0;bottom:0;z-index:4;
+  padding:24px 14px 12px;font-family:var(--mono);font-size:10px;color:var(--paper);
+  letter-spacing:0.1em;text-transform:uppercase;
+  background:linear-gradient(to top,rgba(0,0,0,0.55),transparent);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.photo:hover .label{opacity:1}
+
+.pagination{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 0 40px;
+}
+.page-link{padding:36px 40px;display:flex;flex-direction:column;gap:6px;transition:background .25s}
+.page-link:hover{background:rgba(122,46,31,0.05)}
+.page-link.next{text-align:right;align-items:flex-end;border-left:1px solid var(--rule)}
+.page-link .eyebrow{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px}
+.page-link .name{font-family:var(--serif);font-weight:300;font-size:clamp(22px,3vw,36px);line-height:1.05;letter-spacing:-0.015em;color:var(--ink)}
+.page-link:hover .name{color:var(--accent)}
+.page-link.disabled{opacity:0.3;pointer-events:none}
+
+.lb{
+  position:fixed;inset:0;z-index:999;display:none;
+  background:rgba(20,18,14,0.96);
+  align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:40px;
+}
+.lb.open{display:flex}
+.lb-wrap{max-width:92vw;max-height:78vh;position:relative}
+.lb-wrap img{max-width:92vw;max-height:78vh;object-fit:contain}
+.lb-label{font-family:var(--mono);font-size:11px;color:#c7c1b4;letter-spacing:0.12em;text-transform:uppercase}
+.lb-ctrls{display:flex;gap:18px;align-items:center}
+.lb-btn{
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(244,239,230,0.25);background:transparent;color:var(--paper);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.lb-btn:hover{background:rgba(244,239,230,0.08);border-color:rgba(244,239,230,0.6)}
+.lb-btn svg{width:16px;height:16px}
+.lb-pill{display:inline-flex;border:1px solid rgba(244,239,230,0.25);border-radius:999px;overflow:hidden}
+.lb-pill button{
+  padding:8px 18px;font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  background:transparent;color:#c7c1b4;border:0;cursor:pointer;
+}
+.lb-pill button.active{background:var(--paper);color:var(--ink)}
+.lb-close{
+  position:absolute;top:22px;right:22px;width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(244,239,230,0.2);background:transparent;color:var(--paper);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.lb-close:hover{background:rgba(244,239,230,0.08)}
+.lb-close svg{width:16px;height:16px}
+.lb-hints{display:flex;gap:20px;font-family:var(--mono);font-size:10px;color:#8a847a;letter-spacing:0.08em}
+.lb-hints .k{
+  display:inline-block;padding:1px 6px;margin-right:4px;
+  border:1px solid rgba(244,239,230,0.2);border-radius:3px;color:#c7c1b4;
+}
+
+@media (max-width:900px){
+  .gal-head{grid-template-columns:1fr;padding:40px 20px 20px}
+  .gal-grid{grid-template-columns:repeat(2,1fr);padding:20px;gap:10px}
+  .photo{grid-column:span 1 !important}
+  .pagination{grid-template-columns:1fr}
+  .page-link.next{border-left:0;border-top:1px solid var(--rule);text-align:left;align-items:flex-start}
+  .page-link{padding:24px 20px}
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="mast-left"><a href="../">Matt Bloomfield <em>— Graphic Design Assistant</em></a></div>
+  <div class="mast-right">
+    <a href="../">Index</a>
+    <a href="mailto:matthewb3333@gmail.com">Contact</a>
+  </div>
+</header>
+
+<section class="gal-head">
+  <div>
+    <a class="back-link" href="../">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      All properties
+    </a>
+    <h1 class="gal-title" id="t-name"></h1>
+    <p class="gal-sub" id="t-meta"></p>
+  </div>
+  <div class="gal-controls">
+    <div class="switcher" id="sw">
+      <button class="switcher-btn" onclick="toggleSw()">
+        <span>Switch property</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="switcher-menu" id="sw-menu"></div>
+    </div>
+    <div class="toggle" id="t-toggle">
+      <button class="active" data-mode="edited" onclick="setMode('edited')">Edited</button>
+      <button data-mode="raw" onclick="setMode('raw')">Raw</button>
+    </div>
+  </div>
+</section>
+
+<div class="gal-grid" id="grid"></div>
+
+<nav class="pagination" id="pager"></nav>
+
+<footer class="site-foot">
+  <span>© <span id="year"></span> — Matt Bloomfield</span>
+  <span class="sig">Compiled by hand.</span>
+</footer>
+
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <div class="lb-wrap"><img id="lb-img" src="" alt=""/></div>
+  <div class="lb-label" id="lb-label"></div>
+  <div class="lb-ctrls">
+    <button class="lb-btn" onclick="lbNav(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="lb-pill" id="lb-pill">
+      <button id="lb-ed" class="active" onclick="lbMode('edited')">Edited</button>
+      <button id="lb-rw" onclick="lbMode('raw')">Raw</button>
+    </div>
+    <button class="lb-btn" onclick="lbNav(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div>
+  <div class="lb-hints">
+    <span><span class="k">←</span><span class="k">→</span> navigate</span>
+    <span><span class="k">space</span> raw / edited</span>
+    <span><span class="k">esc</span> close</span>
+  </div>
+</div>
+
+<script>
+const PROP = window.__PROP__;
+const ALL  = window.__ALL__;
+let mode = 'edited';
+let lbIdx = 0, lbM = 'edited';
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('t-name').textContent = PROP.name;
+document.getElementById('t-meta').textContent =
+  String(PROP.count).padStart(2,'0') + ' photos · Raw / Edited';
+
+function toggleSw(){document.getElementById('sw').classList.toggle('open')}
+document.addEventListener('click',e=>{
+  const s=document.getElementById('sw');if(!s.contains(e.target))s.classList.remove('open');
+});
+(function(){
+  const menu=document.getElementById('sw-menu');
+  menu.innerHTML = ALL.map(p=>`
+    <a class="switcher-item ${p.slug===PROP.slug?'current':''}" href="../${p.slug}/">
+      <span>${p.name}</span>
+      <span class="it-count">${p.count}</span>
+    </a>`).join('');
+})();
+
+const grid=document.getElementById('grid');
+grid.innerHTML = PROP.photos.map((ph,i)=>{
+  const onlyOne = !ph.raw || !ph.edited;
+  return `
+  <div class="photo${onlyOne?' only-one':''}" id="p-${i}" onclick="openLb(${i})">
+    ${ph.raw    ? `<img class="raw"  src="${ph.raw}"    alt="${ph.label} raw"    loading="lazy"/>` : ''}
+    ${ph.edited ? `<img class="edit" src="${ph.edited}" alt="${ph.label} edited" loading="lazy"/>` : ''}
+    <span class="tag" id="tag-${i}">${ph.edited?'Edited':'Raw'}</span>
+    <span class="label">${ph.label}</span>
+    ${onlyOne?'':`<button class="swap" title="Toggle" onclick="swap(event,${i})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+    </button>`}
+  </div>`;
+}).join('');
+
+function swap(e,i){
+  e.stopPropagation();
+  const c=document.getElementById('p-'+i);
+  const t=document.getElementById('tag-'+i);
+  const r=c.classList.toggle('show-raw');
+  t.textContent = r ? 'Raw' : 'Edited';
+}
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('#t-toggle button').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));
+  PROP.photos.forEach((ph,i)=>{
+    const c=document.getElementById('p-'+i);if(!c)return;
+    const t=document.getElementById('tag-'+i);
+    if(m==='raw' && ph.raw){c.classList.add('show-raw');t.textContent='Raw';}
+    else{c.classList.remove('show-raw');t.textContent=ph.edited?'Edited':'Raw';}
+  });
+}
+
+(function(){
+  const idx = ALL.findIndex(p=>p.slug===PROP.slug);
+  const prev = idx>0 ? ALL[idx-1] : null;
+  const next = idx<ALL.length-1 ? ALL[idx+1] : null;
+  document.getElementById('pager').innerHTML =
+    (prev?`<a class="page-link prev" href="../${prev.slug}/"><span class="eyebrow">← Previous</span><span class="name">${prev.name}</span></a>`
+         :`<span class="page-link prev disabled"><span class="eyebrow">←</span><span class="name">Start of index</span></span>`) +
+    (next?`<a class="page-link next" href="../${next.slug}/"><span class="eyebrow">Next →</span><span class="name">${next.name}</span></a>`
+         :`<span class="page-link next disabled"><span class="eyebrow">→</span><span class="name">End of index</span></span>`);
+})();
+
+function openLb(i){
+  lbIdx=i;
+  const ph=PROP.photos[i];
+  lbM = ph.edited ? 'edited' : 'raw';
+  const c=document.getElementById('p-'+i);
+  if(c && c.classList.contains('show-raw') && ph.raw) lbM='raw';
+  updateLb();
+  document.getElementById('lb').classList.add('open');
+}
+function closeLb(e){
+  if(e && e.target && e.target.closest && e.target.closest('.lb-wrap,.lb-ctrls,.lb-pill,.lb-btn,.lb-hints,.lb-label') && !(e.currentTarget && e.currentTarget.classList && e.currentTarget.classList.contains('lb-close'))) return;
+  document.getElementById('lb').classList.remove('open');
+}
+function lbNav(d){
+  const n=PROP.photos.length;
+  lbIdx=(lbIdx+d+n)%n;
+  const ph=PROP.photos[lbIdx];
+  lbM = ph.edited?'edited':'raw';
+  updateLb();
+}
+function lbMode(m){
+  const ph=PROP.photos[lbIdx];
+  if(m==='raw' && !ph.raw) return;
+  if(m==='edited' && !ph.edited) return;
+  lbM=m;updateLb();
+}
+function updateLb(){
+  const ph=PROP.photos[lbIdx];
+  const src = lbM==='raw' ? (ph.raw||ph.edited) : (ph.edited||ph.raw);
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-label').textContent =
+    ph.label + ' · ' + (lbIdx+1) + ' / ' + PROP.photos.length;
+  document.getElementById('lb-ed').classList.toggle('active',lbM==='edited');
+  document.getElementById('lb-rw').classList.toggle('active',lbM==='raw');
+  document.getElementById('lb-ed').style.opacity = ph.edited?'1':'0.3';
+  document.getElementById('lb-rw').style.opacity = ph.raw?'1':'0.3';
+}
+window.addEventListener('keydown',e=>{
+  const lb=document.getElementById('lb');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='ArrowRight'){e.preventDefault();lbNav(1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();lbNav(-1)}
+  if(e.key==='Escape')lb.classList.remove('open');
+  if(e.key===' '||e.key==='Spacebar'){e.preventDefault();lbMode(lbM==='raw'?'edited':'raw')}
+  if(e.key==='r'||e.key==='R')lbMode(lbM==='raw'?'edited':'raw');
+});
+</script>
+
+<script>window.__PROP__ = {"slug": "152-9th-avenue-apt-2", "name": "152 9th Avenue Apt. 2", "cover": "../152%209th%20Avenue%20Apt.%202/Edited/Bathroom-Edit.jpg", "count": 19, "photos": [{"label": "Bathroom", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Bathroom.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Bathroom-Edit.jpg"}, {"label": "Bedroom", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Bedroom.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Bedroom-Edit.jpg"}, {"label": "Bedroom A", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Bedroom%20A.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Bedroom%20A-Edit.jpg"}, {"label": "Dsc03197", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/DSC03197-Edit.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/DSC03197-Edit-Edit.jpg"}, {"label": "Kitchen", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Kitchen.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Kitchen-Edit.jpg"}, {"label": "Kitchen Living", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Kitchen%20Living.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Kitchen%20Living-Edit.jpg"}, {"label": "Kitchen1", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Kitchen1.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Kitchen1-Edit.jpg"}, {"label": "Living", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Living.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Living-Edit.jpg"}, {"label": "Living And Kitchen", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Living%20and%20Kitchen.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Living%20and%20Kitchen-Edit.jpg"}, {"label": "Office And Nook", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Office%20and%20Nook.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Office%20and%20Nook-Edit.jpg"}, {"label": "Office Space", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Office%20Space.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Office%20Space-Edit.jpg"}, {"label": "Office Space 2", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Office%20Space%202.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Office%20Space%202-Edit.jpg"}, {"label": "Reading Nook", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Reading%20Nook.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Reading%20Nook.jpg"}, {"label": "Rooftop", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop-Edit.jpg"}, {"label": "Rooftop 3", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop%203.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop%203-Edit.jpg"}, {"label": "Rooftop 4", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop%204.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop%204-Edit.jpg"}, {"label": "Rooftop2", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop2.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop2-Edit.jpg"}, {"label": "Small Bedroom", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Small%20bedroom.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Small%20bedroom-Edit.jpg"}, {"label": "Stairway", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Stairway.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Stairway.jpg"}]}; window.__ALL__ = [{"slug": "152-9th-avenue-apt-2", "name": "152 9th Avenue Apt. 2", "count": 19}, {"slug": "200-e-57th-7a", "name": "200 E 57th 7A", "count": 17}, {"slug": "345-east-45th-c", "name": "345 East 45th C", "count": 8}, {"slug": "400-5th-ave-32c", "name": "400 5th Ave 32C", "count": 12}, {"slug": "404-park-ave-south-6a", "name": "404 Park Ave South 6A", "count": 4}, {"slug": "929-park", "name": "929 Park", "count": 16}, {"slug": "le-reve-exteriors", "name": "Le Reve Exteriors", "count": 10}];</script>
+</body>
+</html>

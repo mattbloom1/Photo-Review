@@ -1,6 +1,6 @@
 [
   {
-    "id": "152-9th-avenue-apt--2",
+    "slug": "152-9th-avenue-apt-2",
     "name": "152 9th Avenue Apt. 2",
     "cover": "./152%209th%20Avenue%20Apt.%202/Edited/Bathroom-Edit.jpg",
     "count": 19,
@@ -21,7 +21,7 @@
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/Bedroom%20A-Edit.jpg"
       },
       {
-        "label": "DSC03197",
+        "label": "Dsc03197",
         "raw": "./152%209th%20Avenue%20Apt.%202/Raw/DSC03197-Edit.jpg",
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/DSC03197-Edit-Edit.jpg"
       },
@@ -46,12 +46,12 @@
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/Living-Edit.jpg"
       },
       {
-        "label": "Living and Kitchen",
+        "label": "Living And Kitchen",
         "raw": "./152%209th%20Avenue%20Apt.%202/Raw/Living%20and%20Kitchen.jpg",
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/Living%20and%20Kitchen-Edit.jpg"
       },
       {
-        "label": "Office and Nook",
+        "label": "Office And Nook",
         "raw": "./152%209th%20Avenue%20Apt.%202/Raw/Office%20and%20Nook.jpg",
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/Office%20and%20Nook-Edit.jpg"
       },
@@ -91,7 +91,7 @@
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/Rooftop2-Edit.jpg"
       },
       {
-        "label": "Small bedroom",
+        "label": "Small Bedroom",
         "raw": "./152%209th%20Avenue%20Apt.%202/Raw/Small%20bedroom.jpg",
         "edited": "./152%209th%20Avenue%20Apt.%202/Edited/Small%20bedroom-Edit.jpg"
       },
@@ -103,13 +103,13 @@
     ]
   },
   {
-    "id": "200-e-57th-7a",
+    "slug": "200-e-57th-7a",
     "name": "200 E 57th 7A",
     "cover": "./200%20E%2057th%207A/Edited/bathroom%20.jpg",
     "count": 17,
     "photos": [
       {
-        "label": "bathroom",
+        "label": "Bathroom",
         "raw": "./200%20E%2057th%207A/Raw/bathroom%20.jpg",
         "edited": "./200%20E%2057th%207A/Edited/bathroom%20.jpg"
       },
@@ -119,7 +119,7 @@
         "edited": "./200%20E%2057th%207A/Edited/Bathroom%202-Edit.jpg"
       },
       {
-        "label": "BR 1",
+        "label": "Br 1",
         "raw": "./200%20E%2057th%207A/Raw/BR%201.jpg",
         "edited": "./200%20E%2057th%207A/Edited/BR%201.jpg"
       },
@@ -144,12 +144,12 @@
         "edited": "./200%20E%2057th%207A/Edited/Dining%20Room%203%20.jpg"
       },
       {
-        "label": "DSC02015",
+        "label": "Dsc02015",
         "raw": "./200%20E%2057th%207A/Raw/DSC02015.jpg",
         "edited": "./200%20E%2057th%207A/Edited/DSC02015.jpg"
       },
       {
-        "label": "DSC02205",
+        "label": "Dsc02205",
         "raw": "./200%20E%2057th%207A/Raw/DSC02205-Edit.jpg",
         "edited": "./200%20E%2057th%207A/Edited/DSC02205-Edit.jpg"
       },
@@ -169,17 +169,17 @@
         "edited": "./200%20E%2057th%207A/Edited/Kitchen%202.jpg"
       },
       {
-        "label": "LR 1",
+        "label": "Lr 1",
         "raw": "./200%20E%2057th%207A/Raw/LR%201.jpg",
         "edited": "./200%20E%2057th%207A/Edited/LR%201-Edit.jpg"
       },
       {
-        "label": "LR 2",
+        "label": "Lr 2",
         "raw": "./200%20E%2057th%207A/Raw/LR%202.jpg",
         "edited": "./200%20E%2057th%207A/Edited/LR%202-Edit.jpg"
       },
       {
-        "label": "LR 3",
+        "label": "Lr 3",
         "raw": "./200%20E%2057th%207A/Raw/LR%203.jpg",
         "edited": "./200%20E%2057th%207A/Edited/LR%203-Edit.jpg"
       },
@@ -196,7 +196,7 @@
     ]
   },
   {
-    "id": "345-east-45th-c",
+    "slug": "345-east-45th-c",
     "name": "345 East 45th C",
     "cover": "./345%20East%2045th%20C/Edited/Bathroom.jpg",
     "count": 8,
@@ -212,12 +212,12 @@
         "edited": "./345%20East%2045th%20C/Edited/Bedroom-Edit-Edit.jpg"
       },
       {
-        "label": "Bedroom_Living Room",
+        "label": "Bedroom Living Room",
         "raw": "./345%20East%2045th%20C/Raw/Bedroom_Living%20Room.jpg",
         "edited": "./345%20East%2045th%20C/Edited/Bedroom_Living%20Room-Edit.jpg"
       },
       {
-        "label": "Bedroom_Living Room 2",
+        "label": "Bedroom Living Room 2",
         "raw": "./345%20East%2045th%20C/Raw/Bedroom_Living%20Room%202.jpg",
         "edited": "./345%20East%2045th%20C/Edited/Bedroom_Living%20Room%202-Edit.jpg"
       },
@@ -244,7 +244,7 @@
     ]
   },
   {
-    "id": "400-5th-ave-32c",
+    "slug": "400-5th-ave-32c",
     "name": "400 5th Ave 32C",
     "cover": "./400%205th%20Ave%2032C/Edited/Bathroom-Edit.jpg",
     "count": 12,
@@ -265,12 +265,12 @@
         "edited": null
       },
       {
-        "label": "bedroom 1 upscale",
+        "label": "Bedroom 1 Upscale",
         "raw": null,
         "edited": "./400%205th%20Ave%2032C/Edited/bedroom%201%20upscale.png"
       },
       {
-        "label": "bedroom 2 upscale",
+        "label": "Bedroom 2 Upscale",
         "raw": null,
         "edited": "./400%205th%20Ave%2032C/Edited/bedroom%202%20upscale.png"
       },
@@ -295,7 +295,7 @@
         "edited": null
       },
       {
-        "label": "living room 1 upscale",
+        "label": "Living Room 1 Upscale",
         "raw": null,
         "edited": "./400%205th%20Ave%2032C/Edited/living%20room%201%20upscale.png"
       },
@@ -305,42 +305,42 @@
         "edited": null
       },
       {
-        "label": "living room 2 upscale",
+        "label": "Living Room 2 Upscale",
         "raw": null,
         "edited": "./400%205th%20Ave%2032C/Edited/living%20room%202%20upscale.png"
       }
     ]
   },
   {
-    "id": "404-park-ave-south-6a",
+    "slug": "404-park-ave-south-6a",
     "name": "404 Park Ave South 6A",
     "cover": "./404%20Park%20Ave%20South%206A/Edited/Photo-18.jpg",
     "count": 4,
     "photos": [
       {
-        "label": "Photo-18",
+        "label": "Photo 18",
         "raw": "./404%20Park%20Ave%20South%206A/Raw/Photo-18.jpg",
         "edited": "./404%20Park%20Ave%20South%206A/Edited/Photo-18.jpg"
       },
       {
-        "label": "Photo-21",
+        "label": "Photo 21",
         "raw": "./404%20Park%20Ave%20South%206A/Raw/Photo-21.jpg",
         "edited": "./404%20Park%20Ave%20South%206A/Edited/Photo-21.jpg"
       },
       {
-        "label": "Photo-22",
+        "label": "Photo 22",
         "raw": "./404%20Park%20Ave%20South%206A/Raw/Photo-22.jpg",
         "edited": "./404%20Park%20Ave%20South%206A/Edited/Photo-22.jpg"
       },
       {
-        "label": "Photo-24",
+        "label": "Photo 24",
         "raw": "./404%20Park%20Ave%20South%206A/Raw/Photo-24.jpg",
         "edited": "./404%20Park%20Ave%20South%206A/Edited/Photo-24.jpg"
       }
     ]
   },
   {
-    "id": "929-park",
+    "slug": "929-park",
     "name": "929 Park",
     "cover": "./929%20Park/Edited/Bathroom%201_.jpg",
     "count": 16,
@@ -351,7 +351,7 @@
         "edited": "./929%20Park/Edited/Bathroom%201_.jpg"
       },
       {
-        "label": "bathroom 2",
+        "label": "Bathroom 2",
         "raw": "./929%20Park/Raw/bathroom%202.jpg",
         "edited": "./929%20Park/Edited/bathroom%202.jpg"
       },
@@ -371,7 +371,7 @@
         "edited": "./929%20Park/Edited/Br%202.jpg"
       },
       {
-        "label": "br 3",
+        "label": "Br 3",
         "raw": "./929%20Park/Raw/br%203.jpg",
         "edited": "./929%20Park/Edited/br%203.jpg"
       },
@@ -391,7 +391,7 @@
         "edited": "./929%20Park/Edited/Den%203.jpg"
       },
       {
-        "label": "Dining room 1",
+        "label": "Dining Room 1",
         "raw": "./929%20Park/Raw/Dining%20room%201%20.jpg",
         "edited": "./929%20Park/Edited/Dining%20room%201_.jpg"
       },
@@ -411,75 +411,75 @@
         "edited": null
       },
       {
-        "label": "Living room 1",
+        "label": "Living Room 1",
         "raw": "./929%20Park/Raw/Living%20room%201.jpg",
         "edited": "./929%20Park/Edited/Living%20room%201.jpg"
       },
       {
-        "label": "Living room 2",
+        "label": "Living Room 2",
         "raw": "./929%20Park/Raw/Living%20room%202%20.jpg",
         "edited": "./929%20Park/Edited/Living%20room%202_.jpg"
       },
       {
-        "label": "Living room 3",
+        "label": "Living Room 3",
         "raw": "./929%20Park/Raw/Living%20room%203%20.jpg",
         "edited": "./929%20Park/Edited/Living%20room%203_.jpg"
       }
     ]
   },
   {
-    "id": "le-reve-exteriors",
+    "slug": "le-reve-exteriors",
     "name": "Le Reve Exteriors",
     "cover": "./Le%20Reve%20Exteriors/Raw/Photo-1.jpg",
     "count": 10,
     "photos": [
       {
-        "label": "Photo-1",
+        "label": "Photo 1",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-1.jpg",
         "edited": null
       },
       {
-        "label": "Photo-10",
+        "label": "Photo 10",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-10.jpg",
         "edited": null
       },
       {
-        "label": "Photo-2",
+        "label": "Photo 2",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-2.jpg",
         "edited": null
       },
       {
-        "label": "Photo-3",
+        "label": "Photo 3",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-3.jpg",
         "edited": null
       },
       {
-        "label": "Photo-4",
+        "label": "Photo 4",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-4.jpg",
         "edited": null
       },
       {
-        "label": "Photo-5",
+        "label": "Photo 5",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-5.jpg",
         "edited": null
       },
       {
-        "label": "Photo-6",
+        "label": "Photo 6",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-6.jpg",
         "edited": null
       },
       {
-        "label": "Photo-7",
+        "label": "Photo 7",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-7.jpg",
         "edited": null
       },
       {
-        "label": "Photo-8",
+        "label": "Photo 8",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-8.jpg",
         "edited": null
       },
       {
-        "label": "Photo-9",
+        "label": "Photo 9",
         "raw": "./Le%20Reve%20Exteriors/Raw/Photo-9.jpg",
         "edited": null
       }

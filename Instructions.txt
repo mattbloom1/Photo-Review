@@ -1,9 +1,9 @@
-TO RUN:
-python3 server.py
+TO PREVIEW LOCALLY:
+    python3 generate.py     (builds index.html + {slug}/index.html per property)
+    python3 server.py       (serves at http://localhost:8080)
 
-
-TO UPDATE:
-python3 generate.py
-git add .
-git commit -m "Add photos"
-git push
+TO UPDATE / PUBLISH:
+    python3 generate.py
+    git add .
+    git commit -m "Add photos"
+    git push
