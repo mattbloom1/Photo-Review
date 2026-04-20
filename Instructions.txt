@@ -1,2 +1,9 @@
+TO RUN:
 python3 server.py
 
+
+TO UPDATE:
+python3 generate.py
+git add .
+git commit -m "Add photos"
+git push
