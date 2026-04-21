@@ -9,8 +9,8 @@
 <section class="hero">
   <h1>Real&nbsp;Estate<br/><em>Photo&nbsp;Editing</em></h1>
   <div class="hero-meta">
-    <p class="lede">A working collection of edited photography from recent listings — raw captures paired alongside their final, market-ready versions.</p>
-    <span class="tag">Matt Bloomfield · Selected Work</span>
+    <p class="lede">Listings from <em>GVC Real Estate Team</em> — raw captures paired alongside their final, market-ready versions.</p>
+    <span class="tag">Edits by Matt Bloomfield</span>
   </div>
 </section>
 
@@ -23,8 +23,8 @@
 
 <section class="colophon">
   <div class="col-block">
-    <h4>About</h4>
-    <p>Graphic design assistant focused on <em>real estate marketing</em> — photography retouching, collateral, and listing visuals.</p>
+    <h4>Credits</h4>
+    <p>Properties listed by <em>GVC Real Estate Team</em>. Edits by Matt Bloomfield.</p>
   </div>
   <div class="col-block">
     <h4>Method</h4>
@@ -32,7 +32,7 @@
   </div>
   <div class="col-block">
     <h4>Contact</h4>
-    <p><em>matthewb3333@gmail.com</em><br/>Available for freelance work.</p>
+    <p><em>matthewb3333@gmail.com</em></p>
   </div>
 </section>
 
@@ -43,19 +43,19 @@
 
 <script>
 const PROPS = window.__PROPS__ || [];
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('prop-count').textContent =
-  String(PROPS.length).padStart(2,'0') + ' / ' +
-  PROPS.reduce((s,p)=>s+p.count,0) + ' photos';
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("prop-count").textContent =
+  String(PROPS.length).padStart(2,"0") + " / " +
+  PROPS.reduce((s,p)=>s+p.count,0) + " photos";
 
-const wrap = document.getElementById('props');
+const wrap = document.getElementById("props");
 wrap.innerHTML = PROPS.map((p,i) => `
   <a class="prop-row" href="./${p.slug}/">
-    <span class="num">${String(i+1).padStart(2,'0')}</span>
+    <span class="num">${String(i+1).padStart(2,"0")}</span>
     <span class="name">${p.name}</span>
-    <span class="meta">${p.count} photo${p.count===1?'':'s'}</span>
-    <span class="thumb">${p.cover ? `<img src="${p.cover}" alt="" loading="lazy"/>` : ''}</span>
+    <span class="meta">${p.count} photo${p.count===1?"":"s"}</span>
+    <span class="thumb">${p.cover ? `<img src="${p.cover}" alt="" loading="lazy"/>` : ""}</span>
     <span class="arrow">→</span>
   </a>
-`).join('');
+`).join("");
 </script>
