@@ -79,10 +79,65 @@
 .col-block p em{font-style:italic;color:var(--accent)}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:32px;padding:56px 20px 40px}
+  .hero{grid-template-columns:1fr;gap:32px;padding:56px 24px 40px}
   .prop-row{grid-template-columns:40px 1fr auto;gap:16px;padding:20px 0}
   .prop-row .thumb{display:none}
-  .colophon{grid-template-columns:1fr;gap:28px;padding:56px 20px 24px}
-  .index-band{padding:20px}
-  .props{padding:0 20px}
+  .colophon{grid-template-columns:1fr;gap:28px;padding:56px 24px 24px}
+  .index-band{padding:20px 24px}
+  .props{padding:0 24px}
+}
+
+@media (max-width:640px){
+  .hero{padding:40px 16px 32px;gap:24px}
+  .hero h1{font-size:clamp(44px,13vw,80px);line-height:0.94}
+  .hero-meta{gap:14px;padding-bottom:0}
+  .hero-meta .lede{font-size:16px;line-height:1.5}
+  .hero-meta .tag{font-size:10px}
+
+  .index-band{padding:18px 16px;gap:12px}
+  .index-band h2{font-size:18px}
+  .index-band .count{font-size:10px}
+
+  .props{padding:0 16px}
+  .prop-row{
+    display:block;
+    padding:0;margin-bottom:20px;
+    border-bottom:0;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    overflow:hidden;
+    transition:transform .25s var(--ease),border-color .25s;
+  }
+  .prop-row:hover{background:var(--paper-2)}
+  .prop-row:active{transform:scale(0.985);border-color:var(--ink)}
+  .prop-row .thumb{
+    display:block !important;
+    width:100%;
+    aspect-ratio:3/2;
+    border:0;
+    border-bottom:1px solid var(--rule);
+  }
+  .prop-row .thumb img{transform:none}
+  .prop-row .num{
+    display:inline-block;
+    padding:14px 14px 0;
+    font-size:10px;
+  }
+  .prop-row .name{
+    display:block;
+    padding:4px 14px 2px;
+    font-size:26px;
+    line-height:1.1;
+  }
+  .prop-row .meta{
+    display:block;
+    padding:0 14px 14px;
+    font-size:10px;
+  }
+  .prop-row .arrow{display:none}
+
+  .colophon{padding:48px 16px 24px;gap:24px;margin-top:40px}
+  .col-block h4{font-size:10px;margin-bottom:8px}
+  .col-block p{font-size:15px;line-height:1.5}
 }

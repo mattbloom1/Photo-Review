@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>Real Estate Photo Editing — Portfolio, Matt Bloomfield</title>
 <meta name="description" content="Matt Bloomfield — Graphic Design Assistant. A collection of edited real estate photography."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -23,7 +23,7 @@
   --mono:'JetBrains Mono',ui-monospace,monospace;
   --ease:cubic-bezier(0.2,0.8,0.2,1);
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--sans);
   background:var(--paper);
@@ -31,21 +31,21 @@ body{
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
 .masthead{
   position:sticky;top:0;z-index:50;
-  display:flex;align-items:baseline;justify-content:space-between;
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   padding:18px 40px;
   background:var(--paper);
   border-bottom:1px solid var(--rule);
 }
 .mast-left{font-family:var(--serif);font-size:17px;font-weight:400;letter-spacing:-0.01em}
 .mast-left em{font-style:italic;font-weight:300;color:var(--muted)}
-.mast-right{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
-.mast-right a,.mast-right span{margin-left:18px}
+.mast-right{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:baseline;gap:18px;flex-shrink:0}
 .mast-right a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
 .mast-right a:hover{border-color:var(--ink)}
 
@@ -59,9 +59,17 @@ footer.site-foot{
 footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2)}
 
 @media (max-width:640px){
-  .masthead{padding:14px 20px}
-  .mast-right a,.mast-right span{margin-left:10px}
-  footer.site-foot{padding:28px 20px 20px;margin-top:72px}
+  .masthead{padding:12px 16px;gap:8px}
+  .mast-left{font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mast-left em{display:none}
+  .mast-right{font-size:10px;gap:12px}
+  .mast-right .portfolio-tag{display:none}
+  footer.site-foot{padding:24px 16px 18px;margin-top:56px;font-size:10px;gap:8px}
+  footer.site-foot .sig{font-size:12px}
+}
+
+@media (hover:none){
+  .mast-right a:hover{border-color:transparent}
 }
 
 .hero{
@@ -145,12 +153,67 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
 .col-block p em{font-style:italic;color:var(--accent)}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:32px;padding:56px 20px 40px}
+  .hero{grid-template-columns:1fr;gap:32px;padding:56px 24px 40px}
   .prop-row{grid-template-columns:40px 1fr auto;gap:16px;padding:20px 0}
   .prop-row .thumb{display:none}
-  .colophon{grid-template-columns:1fr;gap:28px;padding:56px 20px 24px}
-  .index-band{padding:20px}
-  .props{padding:0 20px}
+  .colophon{grid-template-columns:1fr;gap:28px;padding:56px 24px 24px}
+  .index-band{padding:20px 24px}
+  .props{padding:0 24px}
+}
+
+@media (max-width:640px){
+  .hero{padding:40px 16px 32px;gap:24px}
+  .hero h1{font-size:clamp(44px,13vw,80px);line-height:0.94}
+  .hero-meta{gap:14px;padding-bottom:0}
+  .hero-meta .lede{font-size:16px;line-height:1.5}
+  .hero-meta .tag{font-size:10px}
+
+  .index-band{padding:18px 16px;gap:12px}
+  .index-band h2{font-size:18px}
+  .index-band .count{font-size:10px}
+
+  .props{padding:0 16px}
+  .prop-row{
+    display:block;
+    padding:0;margin-bottom:20px;
+    border-bottom:0;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    overflow:hidden;
+    transition:transform .25s var(--ease),border-color .25s;
+  }
+  .prop-row:hover{background:var(--paper-2)}
+  .prop-row:active{transform:scale(0.985);border-color:var(--ink)}
+  .prop-row .thumb{
+    display:block !important;
+    width:100%;
+    aspect-ratio:3/2;
+    border:0;
+    border-bottom:1px solid var(--rule);
+  }
+  .prop-row .thumb img{transform:none}
+  .prop-row .num{
+    display:inline-block;
+    padding:14px 14px 0;
+    font-size:10px;
+  }
+  .prop-row .name{
+    display:block;
+    padding:4px 14px 2px;
+    font-size:26px;
+    line-height:1.1;
+  }
+  .prop-row .meta{
+    display:block;
+    padding:0 14px 14px;
+    font-size:10px;
+  }
+  .prop-row .arrow{display:none}
+
+  .colophon{padding:48px 16px 24px;gap:24px;margin-top:40px}
+  .col-block h4{font-size:10px;margin-bottom:8px}
+  .col-block p{font-size:15px;line-height:1.5}
 }
 
 </style>
@@ -160,7 +223,7 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
 <header class="masthead">
   <div class="mast-left">Matt Bloomfield <em>— Graphic Design Assistant</em></div>
   <div class="mast-right">
-    <span>Portfolio / 2026</span>
+    <span class="portfolio-tag">Portfolio / 2026</span>
     <a href="mailto:matthewb3333@gmail.com">Contact</a>
   </div>
 </header>

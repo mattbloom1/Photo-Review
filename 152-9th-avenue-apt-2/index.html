@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>152 9th Avenue Apt. 2 — Matt Bloomfield</title>
 <meta name="description" content="Matt Bloomfield — Graphic Design Assistant. A collection of edited real estate photography."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -23,7 +23,7 @@
   --mono:'JetBrains Mono',ui-monospace,monospace;
   --ease:cubic-bezier(0.2,0.8,0.2,1);
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--sans);
   background:var(--paper);
@@ -31,21 +31,21 @@ body{
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
 .masthead{
   position:sticky;top:0;z-index:50;
-  display:flex;align-items:baseline;justify-content:space-between;
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   padding:18px 40px;
   background:var(--paper);
   border-bottom:1px solid var(--rule);
 }
 .mast-left{font-family:var(--serif);font-size:17px;font-weight:400;letter-spacing:-0.01em}
 .mast-left em{font-style:italic;font-weight:300;color:var(--muted)}
-.mast-right{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
-.mast-right a,.mast-right span{margin-left:18px}
+.mast-right{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:baseline;gap:18px;flex-shrink:0}
 .mast-right a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
 .mast-right a:hover{border-color:var(--ink)}
 
@@ -59,9 +59,17 @@ footer.site-foot{
 footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2)}
 
 @media (max-width:640px){
-  .masthead{padding:14px 20px}
-  .mast-right a,.mast-right span{margin-left:10px}
-  footer.site-foot{padding:28px 20px 20px;margin-top:72px}
+  .masthead{padding:12px 16px;gap:8px}
+  .mast-left{font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mast-left em{display:none}
+  .mast-right{font-size:10px;gap:12px}
+  .mast-right .portfolio-tag{display:none}
+  footer.site-foot{padding:24px 16px 18px;margin-top:56px;font-size:10px;gap:8px}
+  footer.site-foot .sig{font-size:12px}
+}
+
+@media (hover:none){
+  .mast-right a:hover{border-color:transparent}
 }
 
 .gal-head{
@@ -106,6 +114,7 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
   display:none;position:absolute;right:0;top:calc(100% + 8px);
   min-width:280px;background:var(--paper);border:1px solid var(--rule);
   box-shadow:0 18px 40px rgba(0,0,0,0.08);z-index:40;
+  max-height:70vh;overflow-y:auto;
 }
 .switcher.open .switcher-menu{display:block}
 .switcher-item{
@@ -183,9 +192,9 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
   align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:40px;
 }
 .lb.open{display:flex}
-.lb-wrap{max-width:92vw;max-height:78vh;position:relative}
-.lb-wrap img{max-width:92vw;max-height:78vh;object-fit:contain}
-.lb-label{font-family:var(--mono);font-size:11px;color:#c7c1b4;letter-spacing:0.12em;text-transform:uppercase}
+.lb-wrap{max-width:92vw;max-height:78vh;position:relative;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.lb-wrap img{max-width:92vw;max-height:78vh;object-fit:contain;-webkit-user-drag:none;pointer-events:none}
+.lb-label{font-family:var(--mono);font-size:11px;color:#c7c1b4;letter-spacing:0.12em;text-transform:uppercase;text-align:center}
 .lb-ctrls{display:flex;gap:18px;align-items:center}
 .lb-btn{
   width:42px;height:42px;border-radius:50%;
@@ -204,7 +213,7 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
 .lb-close{
   position:absolute;top:22px;right:22px;width:42px;height:42px;border-radius:50%;
   border:1px solid rgba(244,239,230,0.2);background:transparent;color:var(--paper);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;z-index:2;
 }
 .lb-close:hover{background:rgba(244,239,230,0.08)}
 .lb-close svg{width:16px;height:16px}
@@ -215,12 +224,72 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
 }
 
 @media (max-width:900px){
-  .gal-head{grid-template-columns:1fr;padding:40px 20px 20px}
-  .gal-grid{grid-template-columns:repeat(2,1fr);padding:20px;gap:10px}
+  .gal-head{grid-template-columns:1fr;padding:40px 24px 20px}
+  .gal-grid{grid-template-columns:repeat(2,1fr);padding:20px 24px;gap:12px}
   .photo{grid-column:span 1 !important}
   .pagination{grid-template-columns:1fr}
   .page-link.next{border-left:0;border-top:1px solid var(--rule);text-align:left;align-items:flex-start}
-  .page-link{padding:24px 20px}
+  .page-link{padding:24px 24px}
+}
+
+@media (max-width:640px){
+  .gal-head{padding:28px 16px 18px;gap:18px}
+  .back-link{margin-bottom:14px;font-size:10px}
+  .gal-title{font-size:clamp(32px,9vw,44px);line-height:1.02}
+  .gal-sub{font-size:10px;margin-top:10px}
+  .gal-controls{gap:10px;padding-bottom:0;width:100%}
+  .gal-controls .switcher{flex:1 1 auto}
+  .switcher-btn{width:100%;justify-content:space-between;padding:12px 16px;min-height:44px}
+  .switcher-menu{left:0;right:0;min-width:0;width:100%;max-height:60vh}
+  .switcher-item{padding:14px 16px;font-size:16px;min-height:44px}
+  .toggle button{padding:12px 18px;min-height:44px;font-size:10px}
+
+  .gal-grid{grid-template-columns:1fr;padding:18px 16px 40px;gap:16px}
+  .photo{aspect-ratio:4/3;cursor:pointer;border-radius:3px}
+
+  .photo .label{
+    opacity:1;
+    padding:28px 12px 10px;
+    font-size:9px;
+    background:linear-gradient(to top,rgba(0,0,0,0.7),transparent 85%);
+  }
+  .photo .tag{top:10px;left:10px;font-size:9px;padding:4px 9px}
+  .photo .swap{
+    opacity:1;transform:none;
+    bottom:10px;right:10px;
+    width:40px;height:40px;
+    border-radius:50%;
+    background:rgba(244,239,230,0.92);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    color:var(--ink);
+  }
+  .photo .swap svg{width:16px;height:16px}
+  .photo:hover img{transform:none}
+
+  .pagination{margin:0 0 24px}
+  .page-link{padding:20px 16px}
+  .page-link .name{font-size:22px}
+  .page-link .eyebrow{font-size:10px}
+
+  .lb{padding:20px 16px;gap:16px;justify-content:space-between;padding-top:calc(env(safe-area-inset-top,0px) + 20px);padding-bottom:calc(env(safe-area-inset-bottom,0px) + 20px)}
+  .lb-wrap{max-width:100vw;max-height:62vh;flex:1 1 auto;display:flex;align-items:center;justify-content:center;width:100%}
+  .lb-wrap img{max-width:100%;max-height:62vh}
+  .lb-label{font-size:10px;padding:0 8px}
+  .lb-ctrls{gap:14px;width:100%;justify-content:space-between;padding:0 4px}
+  .lb-btn{width:52px;height:52px;flex-shrink:0}
+  .lb-btn svg{width:18px;height:18px}
+  .lb-pill button{padding:12px 18px;min-height:44px}
+  .lb-close{top:12px;right:12px;width:44px;height:44px}
+  .lb-hints{display:none}
+}
+
+@media (hover:none){
+  .lb-hints{display:none}
+  .photo:hover img{transform:none}
+  .photo:hover .swap{opacity:1;transform:none}
+  .photo:hover .label{opacity:1}
+  .prop-row:hover{background:transparent}
 }
 
 </style>
@@ -228,7 +297,7 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
 <body>
 <script>window.__PROP__ = {"slug": "152-9th-avenue-apt-2", "name": "152 9th Avenue Apt. 2", "cover": "../152%209th%20Avenue%20Apt.%202/Edited/Bathroom-Edit.jpg", "count": 19, "photos": [{"label": "Bathroom", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Bathroom.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Bathroom-Edit.jpg"}, {"label": "Bedroom", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Bedroom.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Bedroom-Edit.jpg"}, {"label": "Bedroom A", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Bedroom%20A.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Bedroom%20A-Edit.jpg"}, {"label": "Dsc03197", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/DSC03197-Edit.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/DSC03197-Edit-Edit.jpg"}, {"label": "Kitchen", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Kitchen.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Kitchen-Edit.jpg"}, {"label": "Kitchen Living", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Kitchen%20Living.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Kitchen%20Living-Edit.jpg"}, {"label": "Kitchen1", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Kitchen1.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Kitchen1-Edit.jpg"}, {"label": "Living", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Living.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Living-Edit.jpg"}, {"label": "Living And Kitchen", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Living%20and%20Kitchen.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Living%20and%20Kitchen-Edit.jpg"}, {"label": "Office And Nook", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Office%20and%20Nook.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Office%20and%20Nook-Edit.jpg"}, {"label": "Office Space", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Office%20Space.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Office%20Space-Edit.jpg"}, {"label": "Office Space 2", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Office%20Space%202.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Office%20Space%202-Edit.jpg"}, {"label": "Reading Nook", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Reading%20Nook.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Reading%20Nook.jpg"}, {"label": "Rooftop", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop-Edit.jpg"}, {"label": "Rooftop 3", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop%203.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop%203-Edit.jpg"}, {"label": "Rooftop 4", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop%204.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop%204-Edit.jpg"}, {"label": "Rooftop2", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Rooftop2.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Rooftop2-Edit.jpg"}, {"label": "Small Bedroom", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Small%20bedroom.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Small%20bedroom-Edit.jpg"}, {"label": "Stairway", "raw": "../152%209th%20Avenue%20Apt.%202/Raw/Stairway.jpg", "edited": "../152%209th%20Avenue%20Apt.%202/Edited/Stairway.jpg"}]}; window.__ALL__ = [{"slug": "152-9th-avenue-apt-2", "name": "152 9th Avenue Apt. 2", "count": 19}, {"slug": "200-e-57th-7a", "name": "200 E 57th 7A", "count": 17}, {"slug": "345-east-45th-c", "name": "345 East 45th C", "count": 8}, {"slug": "400-5th-ave-32c", "name": "400 5th Ave 32C", "count": 12}, {"slug": "404-park-ave-south-6a", "name": "404 Park Ave South 6A", "count": 4}, {"slug": "929-park", "name": "929 Park", "count": 16}, {"slug": "le-reve-exteriors", "name": "Le Reve Exteriors", "count": 10}];</script>
 <header class="masthead">
-  <div class="mast-left"><a href="../">Matt Bloomfield <em>— Graphic Design Assistant</em></a></div>
+  <div class="mast-left"><a href="../">Matt Bloomfield <em>&mdash; Graphic Design Assistant</em></a></div>
   <div class="mast-right">
     <a href="../">Index</a>
     <a href="mailto:matthewb3333@gmail.com">Contact</a>
@@ -264,24 +333,24 @@ footer.site-foot .sig{font-family:var(--serif);font-style:italic;text-transform:
 <nav class="pagination" id="pager"></nav>
 
 <footer class="site-foot">
-  <span>© <span id="year"></span> — Matt Bloomfield</span>
+  <span>&copy; <span id="year"></span> &mdash; Matt Bloomfield</span>
   <span class="sig">Compiled by hand.</span>
 </footer>
 
 <div class="lb" id="lb" onclick="closeLb(event)">
   <button class="lb-close" onclick="closeLb()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <div class="lb-wrap"><img id="lb-img" src="" alt=""/></div>
+  <div class="lb-wrap" id="lb-wrap"><img id="lb-img" src="" alt=""/></div>
   <div class="lb-label" id="lb-label"></div>
   <div class="lb-ctrls">
-    <button class="lb-btn" onclick="lbNav(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button class="lb-btn" onclick="lbNav(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
     <div class="lb-pill" id="lb-pill">
       <button id="lb-ed" class="active" onclick="lbMode('edited')">Edited</button>
       <button id="lb-rw" onclick="lbMode('raw')">Raw</button>
     </div>
-    <button class="lb-btn" onclick="lbNav(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <button class="lb-btn" onclick="lbNav(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></button>
   </div>
   <div class="lb-hints">
-    <span><span class="k">←</span><span class="k">→</span> navigate</span>
+    <span><span class="k">&larr;</span><span class="k">&rarr;</span> navigate</span>
     <span><span class="k">space</span> raw / edited</span>
     <span><span class="k">esc</span> close</span>
   </div>
@@ -296,7 +365,7 @@ let lbIdx = 0, lbM = 'edited';
 document.getElementById('year').textContent = new Date().getFullYear();
 document.getElementById('t-name').textContent = PROP.name;
 document.getElementById('t-meta').textContent =
-  String(PROP.count).padStart(2,'0') + ' photos · Raw / Edited';
+  String(PROP.count).padStart(2,'0') + ' photos / Raw / Edited';
 
 function toggleSw(){document.getElementById('sw').classList.toggle('open')}
 document.addEventListener('click',e=>{
@@ -320,7 +389,7 @@ grid.innerHTML = PROP.photos.map((ph,i)=>{
     ${ph.edited ? `<img class="edit" src="${ph.edited}" alt="${ph.label} edited" loading="lazy"/>` : ''}
     <span class="tag" id="tag-${i}">${ph.edited?'Edited':'Raw'}</span>
     <span class="label">${ph.label}</span>
-    ${onlyOne?'':`<button class="swap" title="Toggle" onclick="swap(event,${i})">
+    ${onlyOne?'':`<button class="swap" title="Toggle raw / edited" aria-label="Toggle raw / edited" onclick="swap(event,${i})">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
     </button>`}
   </div>`;
@@ -349,10 +418,10 @@ function setMode(m){
   const prev = idx>0 ? ALL[idx-1] : null;
   const next = idx<ALL.length-1 ? ALL[idx+1] : null;
   document.getElementById('pager').innerHTML =
-    (prev?`<a class="page-link prev" href="../${prev.slug}/"><span class="eyebrow">← Previous</span><span class="name">${prev.name}</span></a>`
-         :`<span class="page-link prev disabled"><span class="eyebrow">←</span><span class="name">Start of index</span></span>`) +
-    (next?`<a class="page-link next" href="../${next.slug}/"><span class="eyebrow">Next →</span><span class="name">${next.name}</span></a>`
-         :`<span class="page-link next disabled"><span class="eyebrow">→</span><span class="name">End of index</span></span>`);
+    (prev?`<a class="page-link prev" href="../${prev.slug}/"><span class="eyebrow">&larr; Previous</span><span class="name">${prev.name}</span></a>`
+         :`<span class="page-link prev disabled"><span class="eyebrow">&larr;</span><span class="name">Start of index</span></span>`) +
+    (next?`<a class="page-link next" href="../${next.slug}/"><span class="eyebrow">Next &rarr;</span><span class="name">${next.name}</span></a>`
+         :`<span class="page-link next disabled"><span class="eyebrow">&rarr;</span><span class="name">End of index</span></span>`);
 })();
 
 function openLb(i){
@@ -363,10 +432,12 @@ function openLb(i){
   if(c && c.classList.contains('show-raw') && ph.raw) lbM='raw';
   updateLb();
   document.getElementById('lb').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 function closeLb(e){
   if(e && e.target && e.target.closest && e.target.closest('.lb-wrap,.lb-ctrls,.lb-pill,.lb-btn,.lb-hints,.lb-label') && !(e.currentTarget && e.currentTarget.classList && e.currentTarget.classList.contains('lb-close'))) return;
   document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow='';
 }
 function lbNav(d){
   const n=PROP.photos.length;
@@ -386,7 +457,7 @@ function updateLb(){
   const src = lbM==='raw' ? (ph.raw||ph.edited) : (ph.edited||ph.raw);
   document.getElementById('lb-img').src = src;
   document.getElementById('lb-label').textContent =
-    ph.label + ' · ' + (lbIdx+1) + ' / ' + PROP.photos.length;
+    ph.label + ' / ' + (lbIdx+1) + ' / ' + PROP.photos.length;
   document.getElementById('lb-ed').classList.toggle('active',lbM==='edited');
   document.getElementById('lb-rw').classList.toggle('active',lbM==='raw');
   document.getElementById('lb-ed').style.opacity = ph.edited?'1':'0.3';
@@ -397,10 +468,50 @@ window.addEventListener('keydown',e=>{
   if(!lb.classList.contains('open'))return;
   if(e.key==='ArrowRight'){e.preventDefault();lbNav(1)}
   if(e.key==='ArrowLeft'){e.preventDefault();lbNav(-1)}
-  if(e.key==='Escape')lb.classList.remove('open');
+  if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow='';}
   if(e.key===' '||e.key==='Spacebar'){e.preventDefault();lbMode(lbM==='raw'?'edited':'raw')}
   if(e.key==='r'||e.key==='R')lbMode(lbM==='raw'?'edited':'raw');
 });
+
+(function(){
+  const wrap = document.getElementById('lb-wrap');
+  if(!wrap) return;
+  let sx=0, sy=0, t0=0, tracking=false, moved=false;
+  const TH_X = 40, TH_Y = 80, TAP_MAX = 12, TAP_MS = 350;
+  wrap.addEventListener('touchstart', e=>{
+    if(e.touches.length !== 1) {tracking=false; return;}
+    const t = e.touches[0];
+    sx = t.clientX; sy = t.clientY; t0 = Date.now();
+    tracking = true; moved = false;
+  }, {passive:true});
+  wrap.addEventListener('touchmove', e=>{
+    if(!tracking || e.touches.length !== 1) return;
+    const t = e.touches[0];
+    if(Math.abs(t.clientX - sx) > TAP_MAX || Math.abs(t.clientY - sy) > TAP_MAX) moved = true;
+  }, {passive:true});
+  wrap.addEventListener('touchend', e=>{
+    if(!tracking) return;
+    tracking = false;
+    const tc = e.changedTouches && e.changedTouches[0];
+    if(!tc) return;
+    const dx = tc.clientX - sx;
+    const dy = tc.clientY - sy;
+    const dt = Date.now() - t0;
+    const adx = Math.abs(dx), ady = Math.abs(dy);
+    if(!moved && dt < TAP_MS){
+      const ph = PROP.photos[lbIdx];
+      if(ph.raw && ph.edited) lbMode(lbM==='raw'?'edited':'raw');
+      return;
+    }
+    if(ady > TH_Y && ady > adx){
+      if(dy > 0){ document.getElementById('lb').classList.remove('open'); document.body.style.overflow=''; }
+      return;
+    }
+    if(adx > TH_X && adx > ady){
+      lbNav(dx < 0 ? 1 : -1);
+    }
+  }, {passive:true});
+})();
 </script>
 
 </body>
