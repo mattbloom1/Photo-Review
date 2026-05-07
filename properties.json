@@ -1047,7 +1047,7 @@
     "slug": "le-reve-lighting-test",
     "name": "Le Reve Lighting Test",
     "cover": "./Le%20Reve%20Lighting%20Test/Edited/Photo-11.png",
-    "count": 27,
+    "count": 30,
     "photos": [
       {
         "label": "Photo 11",
@@ -1183,6 +1183,21 @@
         "label": "Photo 73",
         "raw": "./Le%20Reve%20Lighting%20Test/Raw/Photo-73.jpg",
         "edited": "./Le%20Reve%20Lighting%20Test/Edited/Photo-73.png"
+      },
+      {
+        "label": "Photo 76",
+        "raw": "./Le%20Reve%20Lighting%20Test/Raw/Photo-76.jpg",
+        "edited": "./Le%20Reve%20Lighting%20Test/Edited/Photo-76.png"
+      },
+      {
+        "label": "Photo 77",
+        "raw": "./Le%20Reve%20Lighting%20Test/Raw/Photo-77.jpg",
+        "edited": "./Le%20Reve%20Lighting%20Test/Edited/Photo-77.png"
+      },
+      {
+        "label": "Photo 80",
+        "raw": "./Le%20Reve%20Lighting%20Test/Raw/Photo-80.jpg",
+        "edited": "./Le%20Reve%20Lighting%20Test/Edited/Photo-80.png"
       }
     ]
   }
