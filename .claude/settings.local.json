@@ -11,7 +11,8 @@
       "Bash(python -c ' *)",
       "Bash(python -c \"print\\('test'\\)\")",
       "Bash(cat)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(git config *)"
     ]
   }
 }
