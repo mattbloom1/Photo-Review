@@ -563,6 +563,109 @@
     ]
   },
   {
+    "slug": "565-wea-10e",
+    "name": "565 WEA 10E",
+    "cover": "./565%20WEA%2010E/Edited/Bar.png",
+    "count": 19,
+    "photos": [
+      {
+        "label": "Bar",
+        "raw": "./565%20WEA%2010E/Raw/Bar%20.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Bar.png"
+      },
+      {
+        "label": "Br 1",
+        "raw": "./565%20WEA%2010E/Raw/BR%201.jpg",
+        "edited": "./565%20WEA%2010E/Edited/BR%201.jpg"
+      },
+      {
+        "label": "Br 2",
+        "raw": "./565%20WEA%2010E/Raw/Br%202.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Br%202.jpg"
+      },
+      {
+        "label": "Br 3",
+        "raw": "./565%20WEA%2010E/Raw/BR%203.jpg",
+        "edited": "./565%20WEA%2010E/Edited/BR%203.jpg"
+      },
+      {
+        "label": "Dining Room",
+        "raw": "./565%20WEA%2010E/Raw/Dining%20Room.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Dining%20Room.jpg"
+      },
+      {
+        "label": "Dsc05411",
+        "raw": "./565%20WEA%2010E/Raw/DSC05411-Edit-2.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05411-Edit-2.jpg"
+      },
+      {
+        "label": "Dsc05416",
+        "raw": "./565%20WEA%2010E/Raw/DSC05416-Edit.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05416-Edit.jpg"
+      },
+      {
+        "label": "Dsc05431",
+        "raw": "./565%20WEA%2010E/Raw/DSC05431-Edit-Edit.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05431-Edit-Edit.jpg"
+      },
+      {
+        "label": "Dsc05451",
+        "raw": "./565%20WEA%2010E/Raw/DSC05451-Edit-2.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05451-Edit-2.jpg"
+      },
+      {
+        "label": "Dsc05467",
+        "raw": "./565%20WEA%2010E/Raw/DSC05467-Edit-2.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05467-Edit-2.jpg"
+      },
+      {
+        "label": "Dsc05502",
+        "raw": "./565%20WEA%2010E/Raw/DSC05502-Edit.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05502-Edit.jpg"
+      },
+      {
+        "label": "Dsc05517",
+        "raw": "./565%20WEA%2010E/Raw/DSC05517-Edit-2.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05517-Edit-2.jpg"
+      },
+      {
+        "label": "Dsc05605",
+        "raw": "./565%20WEA%2010E/Raw/DSC05605-Edit.jpg",
+        "edited": "./565%20WEA%2010E/Edited/DSC05605-Edit.jpg"
+      },
+      {
+        "label": "Kitchen",
+        "raw": "./565%20WEA%2010E/Raw/Kitchen.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Kitchen.jpg"
+      },
+      {
+        "label": "Living Room",
+        "raw": "./565%20WEA%2010E/Raw/Living%20Room.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Living%20Room.jpg"
+      },
+      {
+        "label": "Living Room 2",
+        "raw": "./565%20WEA%2010E/Raw/Living%20room%202%20.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Living%20room%202%20.jpg"
+      },
+      {
+        "label": "Office",
+        "raw": "./565%20WEA%2010E/Raw/Office.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Office.jpg"
+      },
+      {
+        "label": "Statue",
+        "raw": "./565%20WEA%2010E/Raw/Statue.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Statue.jpg"
+      },
+      {
+        "label": "Windows",
+        "raw": "./565%20WEA%2010E/Raw/Windows.jpg",
+        "edited": "./565%20WEA%2010E/Edited/Windows.jpg"
+      }
+    ]
+  },
+  {
     "slug": "929-park",
     "name": "929 Park",
     "cover": "./929%20Park/Edited/Bathroom%201_.jpg",
