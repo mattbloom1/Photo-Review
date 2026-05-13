@@ -7,3 +7,5 @@ TO UPDATE / PUBLISH:
     git add .
     git commit -m "Add photos"
     git push
+
+gh auth switch
